@@ -35,6 +35,7 @@ files=open('/mnt/data/Data/Annotation_prokka/allFNAfiles/list_filenames.txt','r'
 #List declaration and initialization
 driver=['driver_space']*47
 
+#Download geckodriver from: https://github.com/mozilla/geckodriver/releases/tag/v0.29.1
 #Create a firefox driver with specific profile preferences
 #Then go to PHASTER homepage
 #Upload the FNA file
@@ -75,7 +76,7 @@ for f in range(0,47):
 #get all zips, verify you don't have to check the download popup box everytime
 #if you have to do it manually, I suggest:
     #1. fixing the firefox profile variable above since it may be out of date
-    #2. creating another agorithm to fetch the zip files from the URLs listed in ref_driver_zips variable
+    #2. creating another algorithm to fetch the zip files from the URLs listed in ref_driver_zips variable
 try:  
     for fil in range(0,47):
         url = driver[fil].current_url+'.zip'
