@@ -30,18 +30,20 @@ class startthisthing:
     def getcount(tx):
        result = tx.run("MATCH (n:CLUSTER) RETURN count(n)")
        return result.single()[0]
-   
-    @staticmethod
-    def getrange(tx):
-       result = tx.run("MATCH (n:CLUSTER) RETURN count(n)")
-       return result.single()[0]
+
+
+#return html as string variable
 @app.route("/")
 def get_index():
     return "<!DOCTYPE html><header><title>Adi's Neo4j</title></header><html><body>Number of clusters: "+str(greeter.print_count_clusters())+"</body></html>"
 
 if __name__ == "__main__":
     greeter = startthisthing("bolt://localhost:7687", "adi1", "adi_pw")
+    
+    #verify the number that will be printed
     num = greeter.print_count_clusters()
+    print(num)
+    
     app.run(port=port)
 
-    print(num)
+    
